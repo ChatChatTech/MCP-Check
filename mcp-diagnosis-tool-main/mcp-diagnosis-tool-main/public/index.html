@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MCP Diagnosis Tool</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>MCP Diagnosis Tool</h1>
+      <p class="subtitle">Inspect and debug your Model Context Protocol (MCP) servers with ease.</p>
+    </header>
+
+    <main>
+      <section id="config-section">
+        <h2>Load MCP Configuration</h2>
+        <p class="section-subtitle">Load a standard <code>mcp.json</code> or a Codex-compatible <code>config.toml</code>. Convert between formats with a single click.</p>
+        <div class="config-actions">
+          <button type="button" id="load-json-btn">Load standard mcp.json</button>
+          <button type="button" id="load-toml-btn">Load mcp.toml</button>
+          <button type="button" id="add-json-server-btn" class="secondary">Add server (JSON)</button>
+          <button type="button" id="add-toml-server-btn" class="secondary">Add server (TOML)</button>
+          <button type="button" id="save-json-btn" class="secondary" disabled>Save as JSON</button>
+          <button type="button" id="save-toml-btn" class="secondary" disabled>Save as TOML</button>
+          <span id="config-file-name" class="config-file-name">No file selected</span>
+        </div>
+        <input type="file" id="config-json-input" accept=".json,application/json" class="hidden" />
+        <input type="file" id="config-toml-input" accept=".toml,text/plain" class="hidden" />
+      </section>
+
+      <section id="add-server-section">
+        <h2>Add / Diagnose a Server</h2>
+        <form id="diagnose-form">
+          <div class="form-row">
+            <label for="mode-select">Mode:</label>
+            <select id="mode-select" name="mode">
+              <option value="http">HTTP</option>
+              <option value="stdio">STDIO</option>
+            </select>
+          </div>
+          <div class="form-row" id="http-row">
+            <label for="http-url">MCP HTTP URL:</label>
+            <input
+              type="text"
+              id="http-url"
+              name="url"
+              placeholder="e.g. http://localhost:3000/mcp"
+            />
+          </div>
+          <div class="form-row hidden" id="stdio-row">
+            <label for="stdio-command">Command:</label>
+            <input
+              type="text"
+              id="stdio-command"
+              name="command"
+              placeholder="e.g. node build/index.js --flag value"
+            />
+          </div>
+          <div class="form-row">
+            <button type="submit">Diagnose</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="servers-section">
+        <h2>Known MCP Servers</h2>
+        <div id="servers-list"></div>
+      </section>
+    </main>
+
+    <template id="server-template">
+      <div class="server-card">
+        <div class="server-header">
+          <span class="status-dot"></span>
+          <div class="server-info">
+            <span class="server-name"></span>
+            <span class="server-meta"></span>
+          </div>
+          <button class="toggle-details" title="Toggle details">▶</button>
+        </div>
+        <div class="server-summary"></div>
+        <div class="server-details hidden"></div>
+      </div>
+    </template>
+
+    <div id="modal-backdrop" class="modal-backdrop hidden"></div>
+    <div id="tool-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="tool-modal-title">
+      <div class="modal-content">
+        <button type="button" class="modal-close" id="tool-modal-close" aria-label="Close">×</button>
+        <h3 id="tool-modal-title">Test Tool</h3>
+        <div id="tool-modal-body" class="modal-body"></div>
+        <div class="modal-actions">
+          <button type="button" id="tool-modal-submit">Run Tool</button>
+          <button type="button" id="tool-modal-report" class="secondary" disabled>Download Report</button>
+        </div>
+      </div>
+    </div>
+    <div id="config-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="config-modal-title">
+      <div class="modal-content">
+        <button type="button" class="modal-close" id="config-modal-close" aria-label="Close">×</button>
+        <h3 id="config-modal-title">Add MCP Server</h3>
+        <div class="modal-body">
+          <p id="config-modal-desc" class="modal-tool-desc"></p>
+          <textarea id="config-modal-input" class="modal-textarea" placeholder=""></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="config-modal-merge">Merge</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

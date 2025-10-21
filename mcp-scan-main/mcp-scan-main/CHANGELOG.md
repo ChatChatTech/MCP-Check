@@ -1,0 +1,41 @@
+- `0.1.4.0` initial public release
+- `0.1.4.1` `inspect` command, reworked output
+- `0.1.4.2` added SSE support
+- `0.1.4.3` added VSCode MCP support, better support for non-MacOS, improved error handling, better output formatting
+- `0.1.4.4-5` fixes
+- `0.1.4.6` whitelisting of tools
+- `0.1.4.7` automatically rebalance command args
+- `0.1.4.8-10` fixes
+- `0.1.4.11` support for prompts and resources
+- `0.1.5` semver compatible naming, npm release
+- `0.1.6` updated help text
+- `0.1.7` stability improvements (CI, pre-commit hooks, testing), --json, logging & error printing, bug fixes, server improvements
+- `0.1.8-9` fixes
+- `0.1.10-12` automatic releases, updated to newer mcp client
+- `0.1.13-14` Bug fix for printing. Now consider full signature when analyzing a tool.
+- `0.1.15` Added local-only mode for scanning.
+- `0.1.16` Fix when handling tools or args that contain dots.
+- `0.1.17` Fix single server would throw an error.
+- `0.2.1` `mcp-scan proxy` for live MCP call scanning, [MCP guardrails](https://explorer.invariantlabs.ai/docs/mcp-scan/guardrails/); removed NPM support
+- `0.2.2` Fix bug with non-serializable exceptions. Move cross reference analysis to server-side. Now supports fuzzy similarity. Support `streamable-http` as transport.
+- `0.2.3` Bug fix. A broken MCP server would compromise the output for all the other servers within the same client.
+- `0.3.0` Add Toxic Flow analysis.
+- `0.3.1` Add cosmetics. Now defaults to `scan` also with `--` parameters.
+- `0.3.2` Add user IDs, --control-server for managed use and --opt-out to disable tracking.
+- `0.3.3` Fix `inspect` mode, bug fixes.
+- `0.3.4` Various fixes. Scanning of built-in IDE tools.
+- `0.3.5` Improving description of some built-in IDE tools.
+- `0.3.6` Bug fix: tools without description were not working.
+- `0.3.7` Added (experimental) feature to run mcp-scan as a mcp-server.
+- `0.3.8` Argument Handling fix
+- `0.3.9` Fixed bug in `entity_to_tool`, function exposed only when `mcp-scan` is used as a library
+- `0.3.10` Remove Trio dependency.
+- `0.3.11` Binary builds.
+- `0.3.12` Improved SSL handling; ability to pass headers for API interaction.
+- `0.3.13` Get TFA labels from api. Bug fixes
+- `0.3.14` Added new VS Code paths
+- `0.3.15-19` Signed macos releases
+- `0.3.20` Direct scanning, improved URL handling for other endpoints
+- `0.3.21` Fix: handle paths with spaces; updated mcp library dependency
+- `0.3.22` Fix: support more than 100 tools; allow specifying a version when scanning a package
+- `0.3.23` Maintainace to ensure continued server compatability

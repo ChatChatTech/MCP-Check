@@ -1,0 +1,27 @@
+{
+  "name": "mcp-diagnosis-tool",
+  "version": "1.0.0",
+  "description": "A diagnostic UI for Model Context Protocol (MCP) servers. This tool uses a simple HTTP API and a web front‑end to verify server availability, list exposed tools/prompts/resources, and classify handshake/protocol errors.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "mcp",
+    "diagnostic",
+    "debug",
+    "cli",
+    "ui"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
+  }
+}

@@ -1,0 +1,91 @@
+# macOS
+.DS_Store
+*.swp
+*~
+
+# Xcode
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+*.xcscheme
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift
+.build/
+Packages/
+Package.pins
+Package.resolved
+
+# Compiled binaries
+mcp_proxy
+mcp_http_proxy
+MCPProxy/mcp_proxy
+MCPProxy/mcp_http_proxy
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+
+# Logs
+*.log
+/tmp/
+~/Library/Logs/
+
+# Release artifacts (keep directory but not files for public repo)
+releases/
+!releases/.gitkeep
+
+# Proxy port storage
+proxy_ports.json
+
+# Test files
+test_*.py
+debug_*.py
+analyze_*.py
+*.test.swift
+
+# Temporary fixes
+*_fix.swift
+proxy_fix.swift
+tool_reorder_fix.swift
+playwright_fix.swift
+
+# IDE
+.vscode/
+.idea/
+
+# macOS user-specific
+.claude/settings.local.json
+
+# Build credentials (local only, not committed)
+.build-credentials
+build_release_signed.sh
+
+# Backup files
+*.backup
+*.backup-*
+
+# Development documentation and tests (not needed in public repo)
+docs/
+tests/
