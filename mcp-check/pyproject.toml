@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-check"
+version = "0.1.0"
+description = "Unified security assessment toolkit for MCP servers"
+readme = "README.md"
+authors = [{ name = "MCP-Check" }]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+mcp-check = "mcp_check.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
