@@ -1,0 +1,32 @@
+{
+  "manifests": ["manifests.json"],
+  "servers": [
+    {
+      "name": "inline-scout",
+      "transport": "stdio",
+      "endpoint": "./scout",
+      "tools": [
+        {
+          "name": "status",
+          "description": "Return system readiness",
+          "input_schema": {"type": "object", "properties": {"detail": {"type": "boolean"}}}
+        }
+      ],
+      "risks": {
+        "prompt_injection": false,
+        "tool_poisoning": false,
+        "cross_origin": false,
+        "sensitive_access": false,
+        "rce": false,
+        "resource_exhaustion": false
+      },
+      "scenarios": {
+        "handshake": {
+          "handshake_latency_ms": 210,
+          "handshake_errors": [],
+          "capabilities": {"prompts": false, "tools": 1}
+        }
+      }
+    }
+  ]
+}
